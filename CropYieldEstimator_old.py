@@ -45,13 +45,13 @@ def getCropPredictionParameter(n,p,k,temp,hum,ph,rainfall,crop):
         rownumber=int(rn)
         rowdata=dataset_list[rownumber]
         predicted_Selected__list.append(rowdata)
-        pred_N_list.append(float(rowdata[0]))
-        pred_P_list.append(float(rowdata[1]))
-        pred_K_list.append(float(rowdata[2]))
-        pred_temp_list.append(float(rowdata[3]))
-        pred_hum_list.append(float(rowdata[4]))
-        pred_ph_list.append(float(rowdata[5]))
-        pred_rain_list.append(float(rowdata[6]))
+        pred_N_list.append(rowdata[0])
+        pred_P_list.append(rowdata[1])
+        pred_K_list.append(rowdata[2])
+        pred_temp_list.append(rowdata[3])
+        pred_hum_list.append(rowdata[4])
+        pred_ph_list.append(rowdata[5])
+        pred_rain_list.append(rowdata[6])
         
         print(rowdata)
         
@@ -147,28 +147,24 @@ def getCropPredictionParameter(n,p,k,temp,hum,ph,rainfall,crop):
     if(N>=min_n_va and N<=max_n_va):
         parametercount=parametercount+1
         ferticount=ferticount+1
-        print("N Value matched")
     else:
         deficiency.append("NITRONGEN")
         
     if(P>=min_p_va and P<=max_p_va):
         parametercount=parametercount+1
         ferticount=ferticount+1
-        print("P Value matched")
     else:
          deficiency.append("PHOSPHORUS")   
     
     if(K>=min_k_va and K<=max_k_va):
         parametercount=parametercount+1
         ferticount=ferticount+1
-        print("K Value matched")
     else:
         deficiency.append("POTTASSIUM")  
     
     if(PH>=min_ph_va and PH<=max_ph_va):
         parametercount=parametercount+1  
         ferticount=ferticount+1   
-        print("PH Value matched")
     else:
         deficiency.append("PH IMBALANCE") 
     
@@ -181,12 +177,12 @@ def getCropPredictionParameter(n,p,k,temp,hum,ph,rainfall,crop):
     if(RAIN>=min_rain_va and RAIN<=max_rain_va):
         parametercount=parametercount+1     
               
-    print("N : ",N)
-    print("P : ",P)
-    print("K : ",K)
-    print("TEMP : ",TEMP)
-    print("HUM: ",HUM)
-    print("PH: ",PH)
+    print("N : ",n)
+    print("P : ",p)
+    print("K : ",k)
+    print("TEMP : ",temp)
+    print("HUM: ",hum)
+    print("PH: ",ph)
     print("RAINFALL :",rainfall)
     print("CROP : ",crop)    
     print("parametercount = ",parametercount)
